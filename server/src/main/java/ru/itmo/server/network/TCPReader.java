@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.SocketChannel;
-import ru.itmo.server.network.Handler;
 
 /**
  * A runnable task for reading incoming requests from a client's socket channel.

@@ -1,12 +1,14 @@
 package ru.itmo.client.runtime;
 
 
-
 import ru.itmo.client.network.TCPClient;
 import ru.itmo.general.exceptions.ScriptRecursionException;
+import ru.itmo.general.managers.CommandManager;
 import ru.itmo.general.network.Request;
+import ru.itmo.general.utils.console.Console;
 import ru.itmo.general.utils.console.Interrogator;
 import sun.misc.Signal;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,16 +17,15 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.TimeoutException;
-import ru.itmo.general.utils.console.Console;
-import ru.itmo.general.managers.CommandManager;
+
 /**
  * Запускает выполнение программы.
  *
  * @author zevtos
  */
 public class Runner {
-    Console console;
     private final Set<String> scriptSet = new HashSet<>();
+    Console console;
     private Request request;
     private TCPClient tcpClient;
 
@@ -161,15 +162,6 @@ public class Runner {
         CommandManager.initClientCommands(console);
     }
 
-    /**
-     * Коды завершения выполнения программы.
-     */
-    public enum ExitCode {
-        OK,
-        ERROR,
-        EXIT, ERROR_NULL_RESPONSE,
-    }
-
     private Runner.ExitCode executeCommand(String[] userCommand) {
         request = null;
         if (userCommand[0].isEmpty()) return Runner.ExitCode.OK;
@@ -224,5 +216,14 @@ public class Runner {
             }
         }
         return Runner.ExitCode.OK;
+    }
+
+    /**
+     * Коды завершения выполнения программы.
+     */
+    public enum ExitCode {
+        OK,
+        ERROR,
+        EXIT, ERROR_NULL_RESPONSE,
     }
 }

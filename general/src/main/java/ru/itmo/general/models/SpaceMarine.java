@@ -97,7 +97,8 @@ public class SpaceMarine implements Serializable {
         public Builder() {
             this.creationDate = LocalDateTime.now(); // Генерация текущей даты и времени
         }
-        public Builder setId(long id){
+
+        public Builder setId(long id) {
             this.id = id;
             return this;
         }

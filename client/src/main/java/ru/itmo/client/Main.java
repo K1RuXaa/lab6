@@ -3,8 +3,8 @@ package ru.itmo.client;
 
 import ru.itmo.client.console.StandartConsole;
 import ru.itmo.client.network.TCPClient;
-import ru.itmo.general.utils.console.Interrogator;
 import ru.itmo.client.runtime.Runner;
+import ru.itmo.general.utils.console.Interrogator;
 
 import java.util.Scanner;
 

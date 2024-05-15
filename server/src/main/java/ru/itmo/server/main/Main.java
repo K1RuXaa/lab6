@@ -27,8 +27,6 @@ public class Main {
         setSignalProcessing("INT", "TERM", "TSTP", "BREAK", "EOF");
 
 
-
-
         var spCollectionManager = new SpaceMarineCollectionManager();
 
         CommandManager.initServerCommands(spCollectionManager);

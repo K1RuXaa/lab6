@@ -12,9 +12,9 @@ import java.util.LinkedList;
 
 public class SpaceMarineCollectionManager implements CollectionManager<SpaceMarine> {
     private final Logger logger = LoggerFactory.getLogger("SpaceMarineCollectionManager");
-    private int currentId = 1;
     @Getter
     private final LinkedList<SpaceMarine> collection = new LinkedList<>();
+    private int currentId = 1;
     @Getter
     private LocalDateTime lastSaveTime;
 
@@ -52,6 +52,7 @@ public class SpaceMarineCollectionManager implements CollectionManager<SpaceMari
     public boolean remove(long id) {
         return false;
     }
+
     @Override
     public String toString() {
         if (collection.isEmpty()) return "Коллекция пуста!";
@@ -72,10 +73,12 @@ public class SpaceMarineCollectionManager implements CollectionManager<SpaceMari
             }
         }
     }
+
     @Override
-    public boolean remove(SpaceMarine sp){
+    public boolean remove(SpaceMarine sp) {
         return collection.remove(sp);
     }
+
     @Override
     public void update() {
 

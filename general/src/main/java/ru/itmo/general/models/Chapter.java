@@ -1,6 +1,7 @@
 package ru.itmo.general.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 public class Chapter implements Serializable {

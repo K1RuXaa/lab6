@@ -2,8 +2,9 @@ package ru.itmo.client.network;
 
 import ru.itmo.general.network.Request;
 import ru.itmo.general.network.Response;
-import java.io.*;
 import ru.itmo.general.utils.console.Console;
+
+import java.io.*;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;

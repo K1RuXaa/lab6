@@ -28,7 +28,6 @@ public class Remove extends Command {
 
     /**
      * Конструктор для создания экземпляра команды Remove.
-     *
      */
     public Remove(CollectionManager<SpaceMarine> spCollectionManager) {
         this();
