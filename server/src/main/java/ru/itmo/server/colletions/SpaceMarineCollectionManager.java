@@ -22,6 +22,10 @@ public class SpaceMarineCollectionManager implements CollectionManager<SpaceMari
     public void validateAll() {
 
     }
+    @Override
+    public int collectionSize() {
+        return collection.size();
+    }
 
     @Override
     public SpaceMarine byId(int id) {
@@ -102,10 +106,7 @@ public class SpaceMarineCollectionManager implements CollectionManager<SpaceMari
 
     }
 
-    @Override
-    public int collectionSize() {
-        return 0;
-    }
+
 
     @Override
     public SpaceMarine getFirst() {
