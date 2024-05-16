@@ -53,7 +53,7 @@ public class CommandManager {
         register("info", new Info(spCollectionManager));
         register("show", new Show(spCollectionManager));
         register("add", new Add(spCollectionManager));
-        //  register("update", new Update(ticketCollectionManager, dao));
+  //      register("update", new Update(spCollectionManager));
         register("remove_by_id", new Remove(spCollectionManager));
 //        register("clear", new Clear(ticketCollectionManager));
 //        register("remove_first", new RemoveFirst(ticketCollectionManager, dao));
@@ -70,7 +70,7 @@ public class CommandManager {
         register("info", new Info());
         register("show", new Show());
         register("add", new Add(console));
-        // register("update", new Update(console, ticketForm));
+    //     register("update", new Update(console));
         register("remove_by_id", new Remove());
 //        register("clear", new Clear());
         register("execute_script", new Command(CommandName.EXECUTE_SCRIPT, "Выполняет скрипт") {

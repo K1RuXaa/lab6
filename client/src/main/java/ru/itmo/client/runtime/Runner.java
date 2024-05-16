@@ -165,6 +165,7 @@ public class Runner {
         request = null;
         if (userCommand[0].isEmpty()) return Runner.ExitCode.OK;
         var command = CommandManager.getCommands().get(userCommand[0]);
+        CommandManager.addToHistory(String.valueOf(command));
 
         if (command == null) {
             console.printError("Команда '" + userCommand[0] + "' не найдена. Наберите 'help' для справки");

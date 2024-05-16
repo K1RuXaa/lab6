@@ -1,5 +1,7 @@
 package ru.itmo.general.managers;
 
+import ru.itmo.general.models.SpaceMarine;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -27,7 +29,8 @@ public interface CollectionManager<T> {
      * @param id the identifier of the object
      * @return the object with the specified identifier, or null if no such object is found
      */
-    T byId(int id);
+
+    SpaceMarine byId(long id);
 
     /**
      * Checks if the collection contains the specified object.

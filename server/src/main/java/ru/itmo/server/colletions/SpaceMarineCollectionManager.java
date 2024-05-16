@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.itmo.general.managers.CollectionManager;
 import ru.itmo.general.models.SpaceMarine;
-
+import java.util.Collections;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -28,21 +28,19 @@ public class SpaceMarineCollectionManager implements CollectionManager<SpaceMari
     }
 
     @Override
-    public SpaceMarine byId(int id) {
-        try {
+    public SpaceMarine byId(long id) {
+
             if (collection.isEmpty()) return null;
             return collection.stream()
                     .filter(ticket -> ticket.getId() == id)
                     .findFirst()
                     .orElse(null);
-        } finally {
 
-        }
     }
 
     @Override
     public boolean contains(SpaceMarine item) {
-        return false;
+        return collection.contains(item);
     }
 
     @Override
@@ -62,7 +60,14 @@ public class SpaceMarineCollectionManager implements CollectionManager<SpaceMari
 
     @Override
     public boolean remove(long id) {
-        return false;
+        SpaceMarine marine = byId(id);
+        if (marine == null){
+            return false;
+        }
+        if (id != marine.getId() ) return false;
+        collection.remove(marine);
+        update();
+        return true;
     }
 
     @Override

@@ -50,12 +50,12 @@ public class Remove extends Command {
 
             if (!spaceMarineCollectionManager.remove(id)) throw new NotFoundException();
 
-            return new Response(true, "Билет успешно удален.");
+            return new Response(true, "SpaceMarine успешно удален.");
 
         } catch (EmptyValueException exception) {
             return new Response(false, "Коллекция пуста!");
         } catch (NotFoundException exception) {
-            return new Response(false, "Билета с таким ID в коллекции не существует!");
+            return new Response(false, "Дозорного с таким ID в коллекции не существует!");
         }
     }
 
@@ -70,7 +70,7 @@ public class Remove extends Command {
         try {
             if (arguments.length < 2 || arguments[1].isEmpty()) throw new InvalidNumberOfElementsException();
 
-            int id = Integer.parseInt(arguments[1]);
+            long id = Long.parseLong(arguments[1]);
             return new Request(getName(), id);
         } catch (InvalidNumberOfElementsException exception) {
             return new Request(false, getName(), getUsingError());
