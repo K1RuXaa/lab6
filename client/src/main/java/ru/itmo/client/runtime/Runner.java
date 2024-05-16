@@ -21,7 +21,6 @@ import java.util.concurrent.TimeoutException;
 /**
  * Запускает выполнение программы.
  *
- * @author zevtos
  */
 public class Runner {
     private final Set<String> scriptSet = new HashSet<>();

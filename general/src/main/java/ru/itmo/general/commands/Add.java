@@ -22,7 +22,7 @@ public class Add extends Command {
 
     //  private CollectionManager<Ticket> ticketCollectionManager;
     public Add() {
-        super(CommandName.ADD, "{element} добавить новый объект Ticket в коллекцию");
+        super(CommandName.ADD, "{element} добавить новый объект SpaceMarine в коллекцию");
     }
 
     public Add(CollectionManager<SpaceMarine> spCollectionManager) {
@@ -75,8 +75,8 @@ public class Add extends Command {
             // }
 
             if (!spaceMarineCollectionManager.add(marine))
-                return new Response(false, "Билет уже существует", -1);
-            return new Response(true, "Билет успешно добавлен", null);
+                return new Response(false, "SpaceMarine уже существует", -1);
+            return new Response(true, "SpaceMarine успешно добавлен", null);
         } catch (Exception e) {
             return new Response(false, e.toString(), -1);
         }

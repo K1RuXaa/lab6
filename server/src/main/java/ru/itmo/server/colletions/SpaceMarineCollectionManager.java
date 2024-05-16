@@ -25,7 +25,15 @@ public class SpaceMarineCollectionManager implements CollectionManager<SpaceMari
 
     @Override
     public SpaceMarine byId(int id) {
-        return null;
+        try {
+            if (collection.isEmpty()) return null;
+            return collection.stream()
+                    .filter(ticket -> ticket.getId() == id)
+                    .findFirst()
+                    .orElse(null);
+        } finally {
+
+        }
     }
 
     @Override
@@ -106,13 +114,14 @@ public class SpaceMarineCollectionManager implements CollectionManager<SpaceMari
 
     @Override
     public String collectionType() {
-        return null;
+        return collection.getClass().getName();
     }
 
     @Override
     public SpaceMarine getLast() {
         return null;
     }
+
 
 
 }

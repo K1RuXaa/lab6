@@ -1,10 +1,7 @@
 package ru.itmo.general.managers;
 
 import lombok.Getter;
-import ru.itmo.general.commands.Add;
-import ru.itmo.general.commands.Exit;
-import ru.itmo.general.commands.Remove;
-import ru.itmo.general.commands.Show;
+import ru.itmo.general.commands.*;
 import ru.itmo.general.commands.base.Command;
 import ru.itmo.general.commands.base.CommandName;
 import ru.itmo.general.models.SpaceMarine;
@@ -21,7 +18,6 @@ import java.util.Map;
  * Manages commands.
  * Handles registration and execution of commands.
  *
- * @author zevtos
  */
 public class CommandManager {
     /**
@@ -54,7 +50,7 @@ public class CommandManager {
 
     public static void initServerCommands(CollectionManager<SpaceMarine> spCollectionManager) {
         init();
-        //  register("info", new Info(ticketCollectionManager));
+        register("info", new Info(spCollectionManager));
         register("show", new Show(spCollectionManager));
         register("add", new Add(spCollectionManager));
         //  register("update", new Update(ticketCollectionManager, dao));
@@ -66,14 +62,12 @@ public class CommandManager {
 //        register("sum_of_price", new SumOfPrice(ticketCollectionManager));
 //        register("min_by_discount", new MinByDiscount(ticketCollectionManager));
 //        register("max_by_name", new MaxByName(ticketCollectionManager));
-//        register("register", new Register(userDao));
-//        register("login", new Login(userDao));
     }
 
     public static void initClientCommands(Console console) {
         init();
-//        register("help", new Help());
-//        register("info", new Info());
+        register("help", new Help());
+        register("info", new Info());
         register("show", new Show());
         register("add", new Add(console));
         // register("update", new Update(console, ticketForm));
@@ -87,7 +81,7 @@ public class CommandManager {
 //        register("sum_of_price", new SumOfPrice());
 //        register("min_by_discount", new MinByDiscount());
 //        register("max_by_name", new MaxByName());
-//        register("history", new History());
+        register("history", new History());
 //        register("register", new Register(console));
 //        register("login", new Login(console));
     }

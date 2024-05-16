@@ -43,30 +43,6 @@ public class StandartConsole implements Console {
     }
 
     @Override
-    public char[] readPassword(String prompt, int minLength) {
-        java.io.Console console = System.console();
-        char[] password = new char[0];
-        int i = 0;
-        while (password.length < minLength) {
-            try {
-                if (console != null) {
-                    password = console.readPassword(prompt);
-                } else {
-                    Scanner scanner = new Scanner(System.in);
-                    System.out.print(prompt);
-                    password = scanner.nextLine().toCharArray();
-                }
-                return password;
-            } catch (Exception e) {
-                printError("Ошибка чтения пароля: " + e.getMessage());
-            }
-            i++;
-            if (i >= password.length) {
-                return new char[0];
-            }
-        }
-        return password;
-    }
 
 
     /**

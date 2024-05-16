@@ -39,6 +39,9 @@ public class InputParser {
     }
 
     public String requestString(String prompt) {
+        if (prompt == null){
+            return null;
+        }
         System.out.print(prompt);
         return scanner.nextLine();
     }

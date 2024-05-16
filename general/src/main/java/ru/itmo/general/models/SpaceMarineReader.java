@@ -4,8 +4,12 @@ import ru.itmo.general.exceptions.InvalidFormException;
 import ru.itmo.general.utils.console.InputParser;
 
 import java.time.LocalDate;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class SpaceMarineReader { //todo добавить валидацию while(true)
+    private static final AtomicLong idGenerator = new AtomicLong(1);  // Статический генератор для ID
+    private long id;
+
     private String name;
     private Coordinates coordinates;
     private LocalDate creationDate;
@@ -17,6 +21,7 @@ public class SpaceMarineReader { //todo добавить валидацию whil
     private InputParser inputParser;
 
     public SpaceMarineReader() {
+        this.id = idGenerator.getAndIncrement(); // Присваивание и инкрементация ID
         this.inputParser = new InputParser();
     }
 
@@ -69,6 +74,7 @@ public class SpaceMarineReader { //todo добавить валидацию whil
 
     public SpaceMarine build() throws InvalidFormException {
         return new SpaceMarine.Builder()
+                .setId(id)
                 .setName(name)
                 .setChapter(chapter)
                 .setCoordinates(coordinates)
